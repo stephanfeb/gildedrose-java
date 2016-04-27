@@ -24,16 +24,18 @@ public class GildedRoseTest {
     @Test
     public void qualityOfItemIsNeverNegative(){
 
-        Item[] items = new Item[]{new Item("Elixir of the Mongoose", -1, 0)};
+        Item[] items = new Item[]{new Item("Elixir of the Mongoose", -1, 2)};
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(not(-1)));
+        app.updateQuality();
+        app.updateQuality(); //update thrice to see if quality dips below zero
+        assertTrue(app.items[0].quality > -1 );
     }
 
 
     @Test
-    public void qualityOfItemDecreases(){
+    public void qualityOfRegularItemDecreases(){
 
         Item[] items = new Item[]{new Item("Elixir of the Mongoose", 1, 5)};
 
@@ -104,11 +106,10 @@ public class GildedRoseTest {
         assertThat(app.items[0].quality, equalTo(0));
     }
 
-
     /*
-    * This is the failing test you're meant to get working.
-    * Conjured items are supposed to degrade twice the rate (by two points)
-    * */
+        * This is the failing test you're meant to get working.
+        * Conjured items are supposed to degrade twice the rate (by two points)
+        * */
     @Test
     public void conjuredItemsDoubleDegradation(){
 
@@ -118,4 +119,6 @@ public class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality, equalTo(38));
     }
+    
+    
 }
