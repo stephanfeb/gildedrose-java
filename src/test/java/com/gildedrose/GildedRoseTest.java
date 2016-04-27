@@ -18,7 +18,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(3));
+        assertThat(app.getItem(0).quality, equalTo(3));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class GildedRoseTest {
         app.updateQuality();
         app.updateQuality();
         app.updateQuality(); //update thrice to see if quality dips below zero
-        assertTrue(app.items[0].quality > -1 );
+        assertTrue(app.getItem(0).quality > -1 );
     }
 
 
@@ -41,7 +41,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(4));
+        assertThat(app.getItem(0).quality, equalTo(4));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(50));
+        assertThat(app.getItem(0).quality, equalTo(50));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(40));
+        assertThat(app.getItem(0).quality, equalTo(40));
     }
 
     @Test
@@ -71,7 +71,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(41));
+        assertThat(app.getItem(0).quality, equalTo(41));
     }
 
 
@@ -82,7 +82,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(42));
+        assertThat(app.getItem(0).quality, equalTo(42));
     }
 
     @Test
@@ -92,7 +92,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(43));
+        assertThat(app.getItem(0).quality, equalTo(43));
     }
 
 
@@ -103,7 +103,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(0));
+        assertThat(app.getItem(0).quality, equalTo(0));
     }
 
     /*
@@ -117,7 +117,7 @@ public class GildedRoseTest {
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, equalTo(38));
+        assertThat(app.getItem(0).quality, equalTo(38));
     }
     
     

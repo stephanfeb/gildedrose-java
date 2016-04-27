@@ -1,10 +1,18 @@
 package com.gildedrose;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class GildedRose {
-    Item[] items;
+    private List<Item> items;
 
     public GildedRose(Item[] items) {
-        this.items = items;
+        this.items = Arrays.asList(items);
+    }
+
+    public Item getItem(int index){
+        return items.get(index);
     }
 
     private boolean isAgedBrie(Item item){
@@ -20,32 +28,32 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
+        for (Item item: items) {
             //handle products whose quality is affected by age
-            if (isAgingProduct(items[i])) {
-                if (items[i].quality > 0) {
-                    decreaseQuality(items[i]) ;
+            if (isAgingProduct(item)) {
+                if (item.quality > 0) {
+                    decreaseQuality(item) ;
                 }
             } else {
-                    increaseQuality(items[i]);
+                    increaseQuality(item);
 
-                    if (isBackstagePass(items[i])) {
-                        if (items[i].sellIn < 11) {
-                            increaseQuality(items[i]);
+                    if (isBackstagePass(item)) {
+                        if (item.sellIn < 11) {
+                            increaseQuality(item);
                         }
 
-                        if (items[i].sellIn < 6) {
-                            increaseQuality(items[i]);
+                        if (item.sellIn < 6) {
+                            increaseQuality(item);
                         }
                     }
             }
 
             //no effect by age on quality of this item
-            if (!isSulfuras(items[i])) {
-                items[i].sellIn = items[i].sellIn - 1;
+            if (!isSulfuras(item)) {
+                item.sellIn = item.sellIn - 1;
             }
 
-            updateExpiredItems(items[i]);
+            updateExpiredItems(item);
         }
     }
 
